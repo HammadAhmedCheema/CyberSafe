@@ -1,0 +1,293 @@
+{
+  "home": {
+    "hero": {
+      "title": "Stay Safe in the Digital World",
+      "intro": "Welcome to CyberSafe. In an era where digital threats are evolving rapidly, awareness is your best defense. This platform is designed to empower you with the knowledge to recognize potential risks, implement robust security measures, and respond effectively to incidents. Whether you are an individual looking to secure your personal data or a professional aiming to protect organizational assets, CyberSafe provides the essential tools, guides, and latest updates you need to stay one step ahead of cybercriminals."
+    },
+    "quickTips": [
+      {
+        "icon": "🔒",
+        "title": "Use Strong Passwords",
+        "text": "Create unique, complex passwords for each account. Consider using a password manager."
+      },
+      {
+        "icon": "📱",
+        "title": "Enable 2FA",
+        "text": "Add an extra layer of security to your accounts with Two-Factor Authentication."
+      },
+      {
+        "icon": "⚠️",
+        "title": "Spot Phishing",
+        "text": "Don't click suspicious links or download attachments from unknown sources."
+      },
+      {
+        "icon": "💻",
+        "title": "Lock Your Screen",
+        "text": "Always lock your computer or device when you step away, even for a moment."
+      },
+      {
+        "icon": "💾",
+        "title": "Back Up Data",
+        "text": "Regularly back up important files to an external drive or cloud storage."
+      },
+      {
+        "icon": "🔌",
+        "title": "Avoid Unknown USBs",
+        "text": "Never plug in a USB drive you found or don't recognize; it could contain malware."
+      }
+    ]
+  },
+  "threats": {
+    "hero": {
+      "title": "Common Cybersecurity Threats",
+      "subtitle": "Learn to recognize and protect yourself from the most prevalent digital threats."
+    },
+    "threatList": [
+      {
+        "icon": "🎣",
+        "title": "Phishing Attacks",
+        "description": "Fraudulent attempts to obtain sensitive information by disguising as a trustworthy entity in emails or messages."
+      },
+      {
+        "icon": "🦠",
+        "title": "Malware",
+        "description": "Malicious software designed to damage or gain unauthorized access to computer systems, including viruses and spyware."
+      },
+      {
+        "icon": "🔒",
+        "title": "Ransomware",
+        "description": "Malware that encrypts your files and demands payment for the decryption key."
+      },
+      {
+        "icon": "🕵️",
+        "title": "Man-in-the-Middle (MitM)",
+        "description": "Attackers secretly intercept and possibly alter the communication between two parties who believe they are communicating directly."
+      },
+      {
+        "icon": "💥",
+        "title": "DDoS Attacks",
+        "description": "Distributed Denial of Service attacks overwhelm a system's resources, making it unavailable to users."
+      },
+      {
+        "icon": "💉",
+        "title": "SQL Injection",
+        "description": "Malicious SQL statements are inserted into entry fields for execution (e.g., to dump the database contents)."
+      },
+      {
+        "icon": "0️⃣",
+        "title": "Zero-Day Exploit",
+        "description": "An attack that targets a software vulnerability which is unknown to the software vendor or antivirus vendors."
+      },
+      {
+        "icon": "🌐",
+        "title": "DNS Spoofing",
+        "description": "Corrupting the Domain Name System data is introduced into the DNS resolver's cache, causing the name server to return an incorrect result record."
+      },
+      {
+        "icon": "🔑",
+        "title": "Credential Stuffing",
+        "description": "Attackers use lists of compromised user credentials to breach into a system."
+      },
+      {
+        "icon": "❌",
+        "title": "Cross-Site Scripting (XSS)",
+        "description": "Attackers inject malicious scripts into webpages viewed by other users."
+      },
+      {
+        "icon": "🐛",
+        "title": "Rootkits",
+        "description": "A collection of computer software, typically malicious, designed to enable access to a computer or an area of its software that is not otherwise allowed."
+      },
+      {
+        "icon": "👀",
+        "title": "Spyware",
+        "description": "Software that aims to gather information about a person or organization without their knowledge."
+      },
+      {
+        "icon": "📢",
+        "title": "Adware",
+        "description": "Software that automatically displays or downloads advertising material (often unwanted) when a user is online."
+      },
+      {
+        "icon": "🐎",
+        "title": "Trojan Horse",
+        "description": "A type of malware that is often disguised as legitimate software."
+      },
+      {
+        "icon": "🤖",
+        "title": "Botnets",
+        "description": "A number of Internet-connected devices, each of which is running one or more bots. Botnets can be used to perform DDoS attacks, steal data, send spam, and allows the attacker to access the device and its connection."
+      },
+      {
+        "icon": "🚗",
+        "title": "Drive-by Downloads",
+        "description": "Unintended download of computer software from the Internet."
+      },
+      {
+        "icon": "🔨",
+        "title": "Brute Force Attack",
+        "description": "An attack that relies on guessing possible combinations of a correct credential."
+      },
+      {
+        "icon": "🏢",
+        "title": "Insider Threats",
+        "description": "A malicious threat to an organization that comes from people within the organization, such as employees, former employees, contractors or business associates."
+      },
+      {
+        "icon": "🏠",
+        "title": "IoT Vulnerabilities",
+        "description": "Security weaknesses in Internet of Things devices that can be exploited."
+      },
+      {
+        "icon": "🎭",
+        "title": "Social Engineering",
+        "description": "The psychological manipulation of people into performing actions or divulging confidential information."
+      }
+    ]
+  },
+  "practices": {
+    "hero": {
+      "title": "Essential Security Practices",
+      "subtitle": "Implement these fundamental practices to strengthen your digital security posture."
+    },
+    "practiceList": [
+      {
+        "icon": "🔐",
+        "title": "Strong Passwords",
+        "description": "Use complex passwords with a mix of characters and avoid reusing them."
+      },
+      {
+        "icon": "📲",
+        "title": "Enable 2FA",
+        "description": "Turn on Two-Factor Authentication for all supported accounts."
+      },
+      {
+        "icon": "🔄",
+        "title": "Regular Updates",
+        "description": "Keep your OS and software updated to patch security vulnerabilities."
+      },
+      {
+        "icon": "💾",
+        "title": "Data Backups",
+        "description": "Frequently back up your data to an offline source or cloud."
+      },
+      {
+        "icon": "🧱",
+        "title": "Use a Firewall",
+        "description": "Ensure your firewall is active to block unauthorized access."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Antivirus Software",
+        "description": "Install and maintain reputable antivirus software."
+      },
+      {
+        "icon": "📧",
+        "title": "Phishing Awareness",
+        "description": "Be skeptical of unsolicited emails and verify sources before clicking."
+      },
+      {
+        "icon": "📶",
+        "title": "Secure Wi-Fi",
+        "description": "Use WPA3 encryption and a strong password for your home network."
+      },
+      {
+        "icon": "🕶️",
+        "title": "Use a VPN",
+        "description": "Use a Virtual Private Network, especially on public Wi-Fi."
+      },
+      {
+        "icon": "🔒",
+        "title": "Device Encryption",
+        "description": "Encrypt your hard drive and mobile devices to protect data if stolen."
+      },
+      {
+        "icon": "📱",
+        "title": "Screen Locks",
+        "description": "Set short timeout periods for screen locks on all devices."
+      },
+      {
+        "icon": "👤",
+        "title": "Least Privilege",
+        "description": "Don't run as an administrator for daily tasks; use a standard account."
+      },
+      {
+        "icon": "🏢",
+        "title": "Physical Security",
+        "description": "Keep devices physically secure and never leave them unattended in public."
+      },
+      {
+        "icon": "🗑️",
+        "title": "Secure Deletion",
+        "description": "Use software to permanently wipe sensitive files, not just the recycle bin."
+      },
+      {
+        "icon": "🕵️",
+        "title": "Private Browsing",
+        "description": "Use incognito mode on shared computers, but know its limitations."
+      },
+      {
+        "icon": "🔗",
+        "title": "Check URLs",
+        "description": "Inspect URLs for typos or odd domains before entering info."
+      },
+      {
+        "icon": "✉️",
+        "title": "Email Encryption",
+        "description": "Use encrypted email services for sensitive communications."
+      },
+      {
+        "icon": "👥",
+        "title": "Social Media Privacy",
+        "description": "Review and tighten privacy settings on social media platforms."
+      },
+      {
+        "icon": "💳",
+        "title": "Monitor Accounts",
+        "description": "Regularly check bank and credit card statements for unauthorized charges."
+      },
+      {
+        "icon": "📝",
+        "title": "Software Audits",
+        "description": "Uninstall unused software to reduce your attack surface."
+      }
+    ]
+  },
+  "resources": {
+    "hero": {
+      "title": "Cybersecurity Resources",
+      "subtitle": "Download helpful guides and tools to enhance your digital security knowledge."
+    },
+    "downloadable": [
+      {
+        "title": "Password Security Checklist",
+        "description": "A comprehensive checklist to help you create and maintain strong, secure passwords.",
+        "file": "password_security.pdf"
+      },
+      {
+        "title": "Phishing Red Flags Guide",
+        "description": "Learn to identify suspicious emails, messages, and websites visually.",
+        "file": "phishing_guide.pdf"
+      },
+      {
+        "title": "Home Network Security Setup",
+        "description": "Step-by-step instructions for securing your home Wi-Fi network.",
+        "file": "network_security.pdf"
+      }
+    ],
+    "additional": [
+       {
+        "title": "Security Training Videos",
+        "text": "Access our library of cybersecurity awareness training videos covering various topics from basic security to advanced threat detection."
+      },
+      {
+        "title": "Security Assessment Tools",
+        "text": "Use our online tools to assess your current security posture and identify areas that need improvement."
+      },
+      {
+        "title": "Incident Response Templates",
+        "text": "Download templates and checklists for responding to various cybersecurity incidents and data breaches."
+      }
+    ]
+  }
+}

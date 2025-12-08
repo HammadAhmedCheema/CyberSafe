@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global theme variables. Toggle dark mode by adding/removing the `dark` class on <html>. */
+:root {
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+}
+
+html.dark {
+    --bg-color: #0f172a;
+    --text-color: #f1f5f9;
+}
+
+/* Apply variables to the body so the site updates immediately when `html.dark` changes */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Practices Page */
+.practice-article {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex items-start gap-4 border-l-4 border-accent-green;
+}
+
+.practice-title {
+    @apply text-2xl font-bold mb-2 text-gray-900 dark:text-white;
+}
+
+
+.practice-description {
+    @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Theme Toggle */
+.theme-toggle-btn {
+    @apply p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200;
+}
+
+/* Footer */
+.footer {
+    @apply bg-secondary-dark text-white text-center p-8 mt-auto;
+}
+
+/* AI Chat */
+.ai-chat-container {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-2xl mx-auto border-l-4 border-primary-blue;
+}
+
+.ai-chat-title {
+    @apply text-2xl font-bold mb-4 text-secondary-dark dark:text-white;
+}
+
+.ai-response-box {
+    @apply bg-gray-100 dark:bg-gray-700 p-4 rounded-md min-h-[100px] mb-4 whitespace-pre-wrap;
+}
+
+.loading-text {
+    @apply text-gray-500;
+}
+
+.error-text {
+    @apply text-red-500 font-semibold;
+}
+
+.response-text {
+    @apply text-gray-800 dark:text-gray-200;
+}
+
+.input-group {
+    @apply flex gap-2;
+}
+
+.chat-input {
+    @apply flex-grow p-2 border rounded-md dark:bg-gray-600 dark:border-gray-500;
+}
+
+.send-button {
+    @apply bg-primary-blue text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 disabled:bg-gray-400;
+}
+
+/* Hero Section */
+.hero-section {
+    @apply bg-gradient-to-r from-primary-blue to-secondary-dark text-white py-16 text-center;
+}
+
+.hero-title {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+}
+
+.hero-subtitle {
+    @apply text-lg md:text-xl opacity-90 max-w-2xl mx-auto;
+}
+
+/* Layout */
+.layout-container {
+    @apply flex flex-col min-h-screen;
+}
+
+.main-content {
+    @apply flex-grow;
+}
+
+/* Navbar */
+.navbar {
+    @apply bg-gray-800 text-white p-4;
+}
+
+.nav-list {
+    @apply flex space-x-4;
+}
+
+/* Home Page */
+.tips-section {
+    @apply py-16;
+}
+
+.section-title {
+    @apply text-3xl font-bold mb-8;
+}
+
+.tips-grid {
+    @apply grid md:grid-cols-3 gap-8;
+}
+
+.tip-card {
+    @apply bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300;
+}
+
+.tip-icon {
+    @apply text-5xl mb-4;
+}
+
+.tip-title {
+    @apply text-xl font-bold mb-2 text-gray-900 dark:text-white;
+}
+
+.tip-text {
+    @apply text-gray-600 dark:text-gray-300;
+}
+
+.cta-section {
+    @apply bg-white dark:bg-secondary-dark py-12 text-center;
+}
+
+.cta-button {
+    @apply bg-accent-green text-white px-8 py-3 rounded-md font-bold text-lg hover:bg-green-700 transition-colors;
+}
+
+.chat-section {
+    @apply py-16;
+}
+
+/* Threats Page */
+.threat-article {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex items-start gap-4 border-l-4 border-red-500;
+}
+
+.threat-title {
+    @apply text-2xl font-bold mb-2 text-gray-900 dark:text-white;
+}
+
+.threat-description {
+    @apply text-gray-600 dark:text-gray-300;
+}
+
+/* News Page */
+.loading-state {
+    @apply text-center text-xl;
+}
+
+.error-state {
+    @apply text-center text-xl text-red-500;
+}
+
+.articles-container {
+    @apply space-y-6;
+}
+
+.news-article {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-primary-blue transform hover:scale-[1.02] transition-transform duration-300;
+}
+
+.article-title {
+    @apply text-2xl font-bold mb-3 text-secondary-dark dark:text-white;
+}
+
+.article-meta {
+    @apply flex items-center justify-between text-sm text-gray-600 dark:text-gray-400;
+}
+
+.meta-info {
+    @apply font-semibold;
+}
+
+.read-button {
+    @apply bg-primary-blue text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition-colors;
+}
+
+/* Resources Page */
+.downloadable-grid {
+    @apply grid md:grid-cols-3 gap-8 mb-16;
+}
+
+.resource-card {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-primary-blue flex flex-col justify-between;
+}
+
+.resource-title {
+    @apply text-xl font-bold mb-2 text-gray-900 dark:text-white;
+}
+
+.resource-description {
+    @apply text-gray-600 dark:text-gray-300 mb-4;
+}
+
+.download-button {
+    @apply mt-auto bg-primary-blue text-white text-center py-2 px-4 rounded-md font-semibold hover:bg-blue-700 transition-colors;
+}
+
+.video-section {
+    @apply mb-16;
+}
+
+.video-title {
+    @apply text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white;
+}
+
+.video-container {
+    @apply bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg;
+}
+
+.training-video {
+    @apply w-full rounded-lg shadow-md;
+}
+
+.video-caption {
+    @apply text-center text-gray-500 dark:text-gray-400 mt-2 text-sm;
+}
+
+.additional-title {
+    @apply text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white;
+}
+
+.additional-grid {
+    @apply grid md:grid-cols-3 gap-8;
+}
+
+.additional-card {
+    @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-primary-blue;
+}
+
+.additional-item-title {
+    @apply text-xl font-bold mb-2 text-gray-900 dark:text-white;
+}
+
+.additional-item-text {
+    @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Contact Page */
+.contact-form-container {
+    @apply bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg max-w-2xl mx-auto;
+}
+
+.form-title {
+    @apply text-2xl font-bold mb-6 text-center;
+}
+
+.success-alert {
+    @apply bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6;
+}
+
+.error-alert {
+    @apply bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6;
+}
+
+.alert-title {
+    @apply font-bold;
+}
+
+.contact-form {
+    @apply space-y-6;
+}
+
+.form-field {
+    @apply block;
+}
+
+.form-label {
+    @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.form-input {
+    @apply mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue;
+}
+
+.form-select {
+    @apply mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue;
+}
+
+.form-textarea {
+    @apply mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-primary-blue focus:border-primary-blue;
+}
+
+.form-submit {
+    @apply text-right;
+}
+
+.submit-button {
+    @apply inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue disabled:bg-gray-400;
+}
+
+/* Header */
+.header {
+    @apply bg-white dark:bg-secondary-dark shadow-md sticky top-0 z-50;
+}
+
+.header-container {
+    @apply container mx-auto px-4 py-4 flex justify-between items-center flex-wrap;
+}
+
+.logo {
+    @apply text-3xl font-bold text-primary-blue;
+}
+
+.nav {
+    @apply flex items-center gap-4 mt-4 md:mt-0;
+}
+
+.nav-link {
+    @apply text-gray-600 dark:text-gray-300 hover:text-primary-blue;
+}
+
+.nav-link.active {
+    @apply underline underline-offset-2 decoration-2;
+}
