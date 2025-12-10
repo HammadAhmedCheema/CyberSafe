@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-const API_KEY = "AIzaSyAfHXpbcTozcg9gV9F_elGkfgPwJP3G-4E";
-
 const AiChat = () => {
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
@@ -16,7 +14,14 @@ const AiChat = () => {
     setResponse('');
     setError(null);
 
-    const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+    const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+    const API_URL = import.meta.env.VITE_GEMINI_API_URL || "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+
+    if (!API_KEY) {
+        setError("API Key is missing. Please configure VITE_GEMINI_API_KEY.");
+        setIsLoading(false);
+        return;
+    }
 
     try {
       const apiResponse = await fetch(

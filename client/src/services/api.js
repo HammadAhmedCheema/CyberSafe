@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an axios instance
 const api = axios.create({
-    baseURL: 'http://localhost:5001/api', // Point to our Express backend
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5001/api', // Use env variable or fallback to localhost
     headers: {
         'Content-Type': 'application/json',
     },
