@@ -1,8 +1,12 @@
 import axios from 'axios';
 
+// Define API URL from environment variable or fallback to localhost
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+export const IMAGE_BASE_URL = API_URL.replace('/api', '');
+
 // Create an axios instance
 const api = axios.create({
-    baseURL: 'http://localhost:5001/api', // Point to our Express backend
+    baseURL: API_URL, // Point to our Express backend
     headers: {
         'Content-Type': 'application/json',
     },

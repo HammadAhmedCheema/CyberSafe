@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Hero from '../components/Hero';
-import api from '../services/api';
+import api, { IMAGE_BASE_URL } from '../services/api';
 
 const IncidentDetailPage = () => {
     const { id } = useParams();
@@ -61,7 +61,7 @@ const IncidentDetailPage = () => {
                             <div className="mb-8">
                                 <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Attached Image</h3>
                                 <img 
-                                    src={`http://localhost:5001/${incident.image}`} 
+                                    src={`${IMAGE_BASE_URL}/${incident.image}`} 
                                     alt="Incident Attachment" 
                                     className="max-w-full h-auto rounded-lg shadow-md border border-gray-200 dark:border-gray-700"
                                 />
