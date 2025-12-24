@@ -10,10 +10,19 @@ const rateLimit = require('express-rate-limit');
 // Load environment variables
 dotenv.config();
 
+const fs = require('fs');
+
 // Connect to database
 connectDB();
 
 const app = express();
+
+// Ensure uploads directory exists
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)){
+    fs.mkdirSync(uploadsDir);
+    console.log('Created uploads directory');
+}
 
 // --- GLOBAL MIDDLEWARE ---
 // The order here is important!

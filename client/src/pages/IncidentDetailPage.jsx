@@ -61,7 +61,7 @@ const IncidentDetailPage = () => {
                             <div className="mb-8">
                                 <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Attached Image</h3>
                                 <img 
-                                    src={`${IMAGE_BASE_URL}/${incident.image}`} 
+                                    src={`${IMAGE_BASE_URL}/${incident.image}`}
                                     alt="Incident Attachment" 
                                     className="max-w-full h-auto rounded-lg shadow-md border border-gray-200 dark:border-gray-700"
                                 />
