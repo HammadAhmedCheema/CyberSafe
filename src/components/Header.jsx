@@ -23,7 +23,7 @@ const Header = () => {
                     <img 
                         src="/logo.png" 
                         alt="CyberSafe" 
-                        className="h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(0,242,255,0.3)] transition-transform hover:scale-105" 
+                        className="h-12 w-12 object-cover rounded-full ring-2 ring-cyan-400/40 drop-shadow-[0_0_8px_rgba(0,242,255,0.4)] transition-transform hover:scale-105" 
                     />
                     <h1 className="logo text-2xl">CyberSafe</h1>
                 </div>
