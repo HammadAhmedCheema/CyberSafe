@@ -37,12 +37,15 @@ const AiChat = () => {
       );
 
       if (!apiResponse.ok) {
+        const errorData = await apiResponse.json().catch(() => ({}));
+        const errorMessage = errorData.error || `AI request failed (Status: ${apiResponse.status})`;
+        
         if (apiResponse.status === 429) {
-          throw new Error("API Quota Exhausted. Please wait a minute or check your Gemini API plan.");
+          throw new Error(`Quota Issue: ${errorMessage}. Please check your Gemini plan or wait a moment.`);
         }
-        const errorBody = await apiResponse.json().catch(() => ({}));
-        console.error("Proxy Error Response:", errorBody);
-        throw new Error(`AI request failed. Status: ${apiResponse.status}`);
+        
+        console.error("Proxy Error Response:", errorData);
+        throw new Error(errorMessage);
       }
 
       const data = await apiResponse.json();
