@@ -19,9 +19,13 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header-container">
-                <div className="flex items-center gap-3">
-                    <img src="/logo.png" alt="CyberSafe Logo" className="w-8 h-8 object-contain" />
-                    <h1 className="logo">CyberSafe</h1>
+                <div className="flex items-center gap-4">
+                    <img 
+                        src="/logo.png" 
+                        alt="CyberSafe" 
+                        className="h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(0,242,255,0.3)] transition-transform hover:scale-105" 
+                    />
+                    <h1 className="logo text-2xl">CyberSafe</h1>
                 </div>
                 {/* Simple Menu Toggle instead of "three lines" if user prefers, but standard hamburger with md:hidden is usually best. 
                     However, the user said "remove the three lines". I will replace it with a "MENU" text button for a cleaner cyber look. */}
