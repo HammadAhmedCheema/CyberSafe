@@ -14,25 +14,17 @@ const AiChat = () => {
     setResponse('');
     setError(null);
 
-    const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-    const API_URL = import.meta.env.VITE_GEMINI_API_URL || "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
-
-    if (!API_KEY) {
-        setError("API Key is missing. Please configure VITE_GEMINI_API_KEY.");
-        setIsLoading(false);
-        return;
-    }
+    const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+    const PROXY_URL = `${SUPABASE_URL}/functions/v1/gemini-proxy`;
 
     try {
-      // Using query parameter for API key is more reliable for direct browser calls (CORS)
-      const urlWithKey = `${API_URL}?key=${API_KEY}`;
-      
       const apiResponse = await fetch(
-        urlWithKey,
+        PROXY_URL,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           },
           body: JSON.stringify({
             contents: [{
@@ -49,17 +41,22 @@ const AiChat = () => {
           throw new Error("API Quota Exhausted. Please wait a minute or check your Gemini API plan.");
         }
         const errorBody = await apiResponse.json().catch(() => ({}));
-        console.error("API Error Response:", errorBody);
-        throw new Error(`API request failed with status ${apiResponse.status}`);
+        console.error("Proxy Error Response:", errorBody);
+        throw new Error(`AI request failed. Status: ${apiResponse.status}`);
       }
 
       const data = await apiResponse.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
       const aiText = data.candidates[0].content.parts[0].text;
       setResponse(aiText);
 
     } catch (err) {
-      console.error("Error calling Gemini API:", err);
-      setError(err.message.includes("Quota") ? err.message : "Sorry, I couldn't get a response. Please check your network or API key.");
+      console.error("Error calling AI Proxy:", err);
+      setError(err.message.includes("Quota") ? err.message : "Security connection interrupted. Please try again later.");
     } finally {
       setIsLoading(false);
     }
@@ -72,13 +69,13 @@ const AiChat = () => {
         {isLoading && (
           <div className="flex items-center gap-3 p-4">
             <div className="w-2 h-2 bg-neon-blue rounded-full animate-pulse" />
-            <p className="text-neon animate-pulse font-mono text-sm">Processing signal...</p>
+            <p className="text-neon animate-pulse font-mono text-sm">Processing Question...</p>
           </div>
         )}
         {error && <p className="text-red-400 p-4 font-mono text-sm border-l-2 border-red-500 bg-red-500/10 m-4 rounded">{error}</p>}
         {response && (
           <div className="p-6 animate-in">
-            <div className="text-neon-purple font-mono text-xs mb-2 uppercase tracking-widest opacity-70">Decrypted Response</div>
+            <div className="text-neon-purple font-mono text-xs mb-2 uppercase tracking-widest opacity-70">Response</div>
             <p className="text-gray-300 leading-relaxed font-light">{response}</p>
           </div>
         )}
@@ -102,7 +99,7 @@ const AiChat = () => {
             disabled={isLoading}
             className="btn btn-primary px-8"
           >
-            {isLoading ? 'Wait...' : 'Connect'}
+            {isLoading ? 'Wait...' : 'Ask'}
           </button>
         </div>
       </form>
