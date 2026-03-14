@@ -1,260 +1,117 @@
-# CyberSafe Platform - Installation & Setup Guide
+# CyberSafe - Modern Cybersecurity Platform
 
-## Prerequisites
+CyberSafe is a comprehensive cybersecurity platform designed to empower users with information, tools, and a community-driven reporting system for security incidents.
 
-- Node.js (v18 or higher)
-- npm (comes with Node.js)
-- MongoDB Atlas account (or local MongoDB installation)
+The platform has been migrated to a **serverless architecture** using **Supabase**, providing a scalable, secure, and performant backend for authentication, data storage, and file hosting.
 
-## Project Structure
+## 🚀 Features
 
-```
-assignment_3/
-├── client/          # React frontend (Vite)
-├── server/          # Express backend
-└── README.md        # This file
-```
+- **User Authentication**: Secure sign-up and login powered by Supabase Auth, with automatic profile synchronization.
+- **Incident Reporting**: Community-driven security incident reporting with image upload support.
+- **Interactive Dashboard**: Manage and track the status of reported incidents.
+- **AI Cyber Expert**: Integrated Gemini AI chat for instant cybersecurity advice and guidance.
+- **Live Security News**: Real-time cybersecurity news feed powered by the Hacker News API.
+- **Modern UI/UX**: Fully responsive design with Dark/Light mode support, built with React and Tailwind CSS.
 
-## Installation Steps
+## 🛠️ Technology Stack
 
-### 1. Clone/Download the Project
+- **Frontend**: React 19, Vite, Tailwind CSS
+- **Backend / Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Storage**: Supabase Storage (for incident images)
+- **AI Integration**: Google Gemini API
+- **News Integration**: Hacker News API
 
-If you received this project without `node_modules`:
+## 📋 Prerequisites
+
+- **Node.js**: v18 or higher
+- **npm**: v9 or higher
+- **Supabase Account**: A Supabase project with a `profiles` and `incidents` table, and an `incident-images` bucket.
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the repository
 
 ```bash
-cd assignment_3
+git clone https://github.com/HammadAhmedCheema/CyberSafe.git
+cd CyberSafe
 ```
 
-### 2. Install Backend Dependencies
+### 2. Install dependencies
 
 ```bash
-cd server
 npm install
 ```
 
-This will install all packages listed in `server/package.json`:
+### 3. Configure Environment Variables
 
-- express
-- mongoose
-- bcryptjs
-- jsonwebtoken
-- cors
-- dotenv
-- express-validator
-- express-rate-limit
-- multer
-- nodemon (dev dependency)
+Create a `.env.development` (for local dev) or `.env.production` file in the root directory:
 
-### 3. Install Frontend Dependencies
+```env
+# Supabase Configuration
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Gemini AI API
+VITE_GEMINI_API_KEY=your_gemini_api_key
+VITE_GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+```
+
+### 4. Database Setup
+
+Ensure your Supabase project has the following schema:
+
+#### Tables
+
+- `profiles`: Linked to `auth.users` for user metadata.
+- `incidents`: For storing reported incidents.
+
+#### Storage
+
+- `incident-images`: A storage bucket for image attachments.
+
+> [!TIP]
+> Use Row Level Security (RLS) in Supabase to ensure that users can only modify their own reports and profiles.
+
+## 🏃 Running the Application
+
+### Development Mode
 
 ```bash
-cd ../client
-npm install
-```
-
-This will install all packages listed in `client/package.json`:
-
-- react
-- react-dom
-- react-router-dom
-- axios
-- tailwindcss
-- vite
-- And other development dependencies
-
-### 4. Configure Environment Variables
-
-Create a `.env` file in the `server` directory:
-
-```bash
-cd ../server
-touch .env
-```
-
-Add the following content to `server/.env`:
-
-```
-PORT=5001
-MONGO_URI=your_mongodb_connection_string_here
-JWT_SECRET=your_secret_key_here
-NODE_ENV=development
-```
-
-**Important:** Replace the values:
-
-- `MONGO_URI`: Your MongoDB Atlas connection string
-- `JWT_SECRET`: A random secure string (you can generate one online)
-
-### 5. Create Admin User (Optional)
-
-```bash
-cd server
-node seedAdmin.js
-```
-
-This creates an admin account:
-
-- Email: admin@cybersafe.com
-- Password: admin123
-
-## Running the Application
-
-### Option 1: Run Both Servers Separately (Recommended for Development)
-
-**Terminal 1 - Backend Server:**
-
-```bash
-cd server
 npm run dev
 ```
 
-Server will start on: http://localhost:5001
+The app will be available at `http://localhost:5173`.
 
-**Terminal 2 - Frontend Server:**
-
-```bash
-cd client
-npm run dev
-```
-
-Frontend will start on: http://localhost:5173
-
-### Option 2: Production Build
-
-**Build Frontend:**
+### Production Build
 
 ```bash
-cd client
 npm run build
+npm run preview
 ```
 
-**Run Backend:**
+## 📂 Project Structure
 
 ```bash
-cd ../server
-npm start
+CyberSafe/
+├── public/          # Static assets
+├── src/
+│   ├── components/  # Reusable UI components
+│   ├── context/     # Auth and state management
+│   ├── pages/       # Page components (Home, Dashboard, etc.)
+│   ├── services/    # API clients (Supabase, News API)
+│   └── assets/      # Styles and images
+├── index.html       # Entry point
+├── tailwind.config.js
+└── vite.config.js
 ```
 
-## Quick Start Commands
+## 🛡️ Security Features
 
-### First Time Setup:
+- **RLS (Row Level Security)**: Database-level access control.
+- **Secure File Storage**: Restricted access to user-uploaded content.
+- **Client-Side Validation**: Robust form handling for incident reports.
 
-```bash
-# Install all dependencies
-cd server && npm install
-cd ../client && npm install
-
-# Configure .env file (see step 4 above)
-
-# Create admin user
-cd ../server && node seedAdmin.js
-
-# Start development servers
-# Terminal 1:
-cd server && npm run dev
-
-# Terminal 2:
-cd client && npm run dev
-```
-
-## Available Scripts
-
-### Backend (server/)
-
-- `npm run dev` - Start development server with nodemon (auto-restart)
-- `npm start` - Start production server
-- `node seedAdmin.js` - Create admin user
-
-### Frontend (client/)
-
-- `npm run dev` - Start Vite development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## Default Ports
-
-- Backend API: http://localhost:5001
-- Frontend: http://localhost:5173
-
-## Features
-
-- User Authentication (Register/Login)
-- Incident Reporting with Image Upload
-- Public Incident Feed
-- User Dashboard
-- Admin Dashboard (status updates, delete reports)
-- AI Chat (Gemini API)
-- News Feed (Hacker News API)
-- Dark/Light Theme Toggle
-- Mobile Responsive
-
-## Troubleshooting
-
-### Port Already in Use
-
-If port 5001 or 5173 is already in use:
-
-```bash
-# Kill process on port 5001 (Linux/Mac)
-lsof -ti:5001 | xargs kill -9
-
-# Kill process on port 5173
-lsof -ti:5173 | xargs kill -9
-```
-
-### MongoDB Connection Issues
-
-- Verify your MongoDB Atlas connection string
-- Check if your IP is whitelisted in MongoDB Atlas
-- Ensure network access is configured
-
-### Module Not Found Errors
-
-```bash
-# Clear node_modules and reinstall
-rm -rf node_modules package-lock.json
-npm install
-```
-
-## Project Dependencies
-
-### Backend Dependencies:
-
-```json
-{
-  "express": "^5.2.1",
-  "mongoose": "^9.0.1",
-  "bcryptjs": "^3.0.3",
-  "jsonwebtoken": "^9.0.3",
-  "cors": "^2.8.5",
-  "dotenv": "^17.2.3",
-  "express-validator": "^7.3.1",
-  "express-rate-limit": "^8.2.1",
-  "multer": "^2.0.2"
-}
-```
-
-### Frontend Dependencies:
-
-```json
-{
-  "react": "^19.0.0",
-  "react-dom": "^19.0.0",
-  "react-router-dom": "^7.1.1",
-  "axios": "^1.7.9"
-}
-```
-
-## Support
-
-For issues or questions, please check:
-
-1. All dependencies are installed
-2. Environment variables are configured
-3. MongoDB is accessible
-4. Ports are not in use
-
-## License
+## 📄 License
 
 This project is for educational purposes.
