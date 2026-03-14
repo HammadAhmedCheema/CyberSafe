@@ -1,117 +1,89 @@
 # CyberSafe - Modern Cybersecurity Platform
 
-CyberSafe is a comprehensive cybersecurity platform designed to empower users with information, tools, and a community-driven reporting system for security incidents.
+CyberSafe is a high-performance, community-driven cybersecurity awareness and incident reporting platform. It bridges the gap between technical security experts and everyday users by providing a professional, real-time interface for reporting threats, tracking breaches, and accessing verified security intel.
 
-The platform has been migrated to a **serverless architecture** using **Supabase**, providing a scalable, secure, and performant backend for authentication, data storage, and file hosting.
+---
 
-## 🚀 Features
+## 📖 About the Project
 
-- **User Authentication**: Secure sign-up and login powered by Supabase Auth, with automatic profile synchronization.
-- **Incident Reporting**: Community-driven security incident reporting with image upload support.
-- **Interactive Dashboard**: Manage and track the status of reported incidents.
-- **AI Cyber Expert**: Integrated Gemini AI chat for instant cybersecurity advice and guidance.
-- **Live Security News**: Real-time cybersecurity news feed powered by the Hacker News API.
-- **Modern UI/UX**: Fully responsive design with Dark/Light mode support, built with React and Tailwind CSS.
+In an era of increasing digital threats, **CyberSafe** serves as a centralized hub for proactive security management. The platform is designed with a **Cyber-Theme (Glassmorphism)** aesthetic, providing a premium, high-tech experience that reflects the seriousness of cybersecurity while maintaining peak usability.
 
-## 🛠️ Technology Stack
+### Mission
+To democratize cybersecurity awareness by making incident reporting simple, visual, and immediate, while providing users with real-time news and AI-driven expert guidance.
 
-- **Frontend**: React 19, Vite, Tailwind CSS
-- **Backend / Database**: Supabase (PostgreSQL)
-- **Authentication**: Supabase Auth
-- **Storage**: Supabase Storage (for incident images)
-- **AI Integration**: Google Gemini API
-- **News Integration**: Hacker News API
+---
 
-## 📋 Prerequisites
+## 🎯 Core Use Cases
 
-- **Node.js**: v18 or higher
-- **npm**: v9 or higher
-- **Supabase Account**: A Supabase project with a `profiles` and `incidents` table, and an `incident-images` bucket.
+### 1. Security Incident Reporting
+Users can quickly document and upload evidence (screenshots/descriptions) of potential security breaches, phishing attempts, or malware discoveries. Every report is time-stamped and linked to the user's secure profile.
 
-## ⚙️ Setup & Installation
+### 2. Community Threat Monitoring
+The **Alerts Feed** provides a real-time stream of incidents reported by the community. Users can monitor local or platform-wide trends to stay ahead of emerging phishing campaigns or data leaks.
 
-### 1. Clone the repository
+### 3. Professional Admin Oversight
+A dedicated **Control Center (Dashboard)** allows authorized security administrators to manage reports, update incident statuses (from "Open" to "In-Progress" or "Resolved"), and terminate false flags.
 
-```bash
-git clone https://github.com/HammadAhmedCheema/CyberSafe.git
-cd CyberSafe
-```
+### 4. Interactive Learning & News
+Through the **AI Cyber Expert** (powered by Gemini) and the **Live News Feed** (Hacker News API), users have instant access to best practices and the latest global security headlines.
 
-### 2. Install dependencies
+---
 
-```bash
-npm install
-```
+## 🛠️ Modern Tech Stack
 
-### 3. Configure Environment Variables
+The platform is built on a cutting-edge, **Serverless Architecture** for maximum performance and security:
 
-Create a `.env.development` (for local dev) or `.env.production` file in the root directory:
+- **Frontend Core**: [React 19](https://react.dev/) — Utilizing the latest concurrent rendering features for a smooth, app-like experience.
+- **Build Tooling**: [Vite](https://vitejs.dev/) — Lightning-fast HMR and optimized production bundling.
+- **Styling Strategy**: [Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) + [Tailwind CSS](https://tailwindcss.com/) — A custom design system utilizing **Glassmorphism** (translucent backdrops, neon borders, and glowing effects).
+- **Backend-as-a-Service**: [Supabase](https://supabase.com/)
+  - **Database**: PostgreSQL with Row Level Security (RLS) for ironclad data isolation.
+  - **Auth**: Secure JWT-based authentication with instant profile synchronization.
+  - **Storage**: S3-compatible bucket for secure evidence/image hosting.
+- **AI Engine**: [Google Gemini 2.0 Flash](https://deepmind.google/technologies/gemini/) — Integrated via secure API for real-time security consultations.
+
+---
+
+## ⚙️ Quick Start
+
+### 1. Environment Configuration
+Create a `.env.development` file in the root:
 
 ```env
-# Supabase Configuration
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-# Gemini AI API
-VITE_GEMINI_API_KEY=your_gemini_api_key
-VITE_GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+VITE_SUPABASE_URL=your_project_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
+VITE_GEMINI_API_KEY=your_api_key
 ```
 
-### 4. Database Setup
-
-Ensure your Supabase project has the following schema:
-
-#### Tables
-
-- `profiles`: Linked to `auth.users` for user metadata.
-- `incidents`: For storing reported incidents.
-
-#### Storage
-
-- `incident-images`: A storage bucket for image attachments.
-
-> [!TIP]
-> Use Row Level Security (RLS) in Supabase to ensure that users can only modify their own reports and profiles.
-
-## 🏃 Running the Application
-
-### Development Mode
-
+### 2. Initialization
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`.
+---
 
-### Production Build
+## 📂 Architecture Overview
 
-```bash
-npm run build
-npm run preview
-```
-
-## 📂 Project Structure
+The repository has been restructured to a clean, flat architecture at the root level for simplified deployment and maintenance:
 
 ```bash
 CyberSafe/
-├── public/          # Static assets
 ├── src/
-│   ├── components/  # Reusable UI components
-│   ├── context/     # Auth and state management
-│   ├── pages/       # Page components (Home, Dashboard, etc.)
-│   ├── services/    # API clients (Supabase, News API)
-│   └── assets/      # Styles and images
-├── index.html       # Entry point
-├── tailwind.config.js
-└── vite.config.js
+│   ├── components/  # Atomic UI (Header, Hero, Glass Cards)
+│   ├── context/     # Auth hooks & global state
+│   ├── pages/       # Route-level views
+│   ├── services/    # Data layer (Supabase, HackerNews)
+│   └── tests/       # Vitest suites
+├── public/          # Static assets & PDF resources
+└── index.css        # Global design tokens (Glassmorphism engine)
 ```
 
-## 🛡️ Security Features
-
-- **RLS (Row Level Security)**: Database-level access control.
-- **Secure File Storage**: Restricted access to user-uploaded content.
-- **Client-Side Validation**: Robust form handling for incident reports.
+---
 
 ## 📄 License
-
-This project is for educational purposes.
+This platform is a demonstration of modern web engineering and cybersecurity patterns. 
+**Stay Safe. Stay Cyber.**
