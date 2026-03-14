@@ -40,7 +40,7 @@ The platform is built on a cutting-edge, **Serverless Architecture** for maximum
   - **Database**: PostgreSQL with Row Level Security (RLS) for ironclad data isolation.
   - **Auth**: Secure JWT-based authentication with instant profile synchronization.
   - **Storage**: S3-compatible bucket for secure evidence/image hosting.
-- **AI Engine**: [Google Gemini 2.0 Flash](https://deepmind.google/technologies/gemini/) — Integrated via secure API for real-time security consultations.
+- **AI Engine**: [Google Gemini 1.5 Flash](https://deepmind.google/technologies/gemini/) — Integrated via secure **Supabase Edge Function Proxy** for real-time security consultations.
 
 ---
 
@@ -52,7 +52,7 @@ Create a `.env.development` file in the root:
 ```env
 VITE_SUPABASE_URL=your_project_url
 VITE_SUPABASE_ANON_KEY=your_anon_key
-VITE_GEMINI_API_KEY=your_api_key
+# The Gemini API Key is secured in Supabase Secrets, NOT in the client.
 ```
 
 ### 2. Initialization
