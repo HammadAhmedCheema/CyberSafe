@@ -24,13 +24,15 @@ const AiChat = () => {
     }
 
     try {
+      // Using query parameter for API key is more reliable for direct browser calls (CORS)
+      const urlWithKey = `${API_URL}?key=${API_KEY}`;
+      
       const apiResponse = await fetch(
-        API_URL,
+        urlWithKey,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-goog-api-key': API_KEY, 
           },
           body: JSON.stringify({
             contents: [{
@@ -43,7 +45,10 @@ const AiChat = () => {
       );
 
       if (!apiResponse.ok) {
-        const errorBody = await apiResponse.json();
+        if (apiResponse.status === 429) {
+          throw new Error("API Quota Exhausted. Please wait a minute or check your Gemini API plan.");
+        }
+        const errorBody = await apiResponse.json().catch(() => ({}));
         console.error("API Error Response:", errorBody);
         throw new Error(`API request failed with status ${apiResponse.status}`);
       }
@@ -54,7 +59,7 @@ const AiChat = () => {
 
     } catch (err) {
       console.error("Error calling Gemini API:", err);
-      setError("Sorry, I couldn't get a response. Please check that your API key is correct and try again.");
+      setError(err.message.includes("Quota") ? err.message : "Sorry, I couldn't get a response. Please check your network or API key.");
     } finally {
       setIsLoading(false);
     }
